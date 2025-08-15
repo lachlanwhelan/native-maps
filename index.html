@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="openMapBtn">Apple maps or google maps</button>
+        <a href="https://www.bing.com/maps?rtp=~pos.-37.826895_144.969622" target="_blank" rel="noreferrer">Desktop - Bing Maps</a>
+        <a href="http://maps.apple.com/?ll=-37.826895,144.969622" target="_blank" rel="noreferrer">Iphone or Ipad - Apple Maps</a>
+        <a href="geo:-37.826895,144.969622" target="_blank" rel="noreferrer">Click here for map</a>
+        <a href="https://www.bing.com/maps?rtp=~pos.-37.826895_144.969622" target="_blank" rel="noreferrer">Desktop - Bing Maps</a>
+    </div>
+
+    <script>
+        const openMapBtn = document.querySelector(".openMapBtn");
+
+        const mapsSelector = () => {
+        if /* if we're on iOS, open in Apple Maps */
+            ((navigator.platform.indexOf("iPhone") !== -1) || 
+            (navigator.platform.indexOf("iPod") !== -1) || 
+            (navigator.platform.indexOf("iPad") !== -1))
+            window.open("maps://maps.google.com/maps?daddr=-37.826895,144.969622&amp;ll=");
+
+        else /* else use Google */
+            window.open("https://maps.google.com/maps?daddr=-37.826895,144.969622&amp;ll=");
+        }
+
+        openMapBtn.addEventListener("click", mapsSelector);
+    </script>
+</body>
+</html>
